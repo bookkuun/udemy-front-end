@@ -1,3 +1,5 @@
+@use "../globals" as *;
+
 body {
   font-family: "Kameron", "Noto Sans JP", sans-serif;
 }
@@ -7,15 +9,14 @@ img {
   vertical-align: bottom;
 }
 
-.mb-sm, .sub-title {
+.mb-sm {
   margin-bottom: 16px !important;
 }
 
 .mb-lg {
   margin-bottom: 80px !important;
-}
-@media screen and (min-width: 960px) {
-  .mb-lg {
+
+  @include mq(lg) {
     margin-bottom: 150px !important;
   }
 }
@@ -26,9 +27,8 @@ img {
 
 .pb-lg {
   padding-bottom: 80px !important;
-}
-@media screen and (min-width: 960px) {
-  .pb-lg {
+
+  @include mq(lg) {
     padding-bottom: 150px !important;
   }
 }
@@ -36,70 +36,62 @@ img {
 .content-width {
   width: 90%;
   margin: 0 auto;
-  max-width: 1070px;
+  max-width: $contentMaxWidth;
 }
 
 .flex {
   display: flex;
   flex-direction: column;
-}
-@media screen and (min-width: 600px) {
-  .flex {
+
+  @include mq(md) {
     flex-direction: row;
     flex-wrap: wrap;
   }
 }
 
 .purple {
-  color: #904669;
+  color: $cWineRed;
 }
 
-.font-sm, .sub-title {
+// font
+.font-sm {
   font-size: 14px;
-}
-@media screen and (min-width: 960px) {
-  .font-sm, .sub-title {
+
+  @include mq(lg) {
     font-size: 16px;
   }
 }
-
 .font-md {
   font-size: 17px;
-}
-@media screen and (min-width: 960px) {
-  .font-md {
+
+  @include mq(lg) {
     font-size: 19px;
   }
 }
-
 .font-lr {
   font-size: 17px;
-}
-@media screen and (min-width: 960px) {
-  .font-lr {
+
+  @include mq(lg) {
     font-size: 23px;
   }
 }
-
-.font-lg, .main-title {
+.font-lg {
   font-size: 25px;
-}
-@media screen and (min-width: 960px) {
-  .font-lg, .main-title {
+
+  @include mq(lg) {
     font-size: 36px;
   }
 }
 
 .main-title {
+  @extend .font-lg;
   font-weight: 600;
   margin-bottom: 0;
   display: block;
 }
 
 .sub-title {
-  color: #535353;
+  @extend .font-sm;
+  @extend .mb-sm;
+  color: $cSubTitle;
 }
-
-.header {
-  background-color: red;
-}/*# sourceMappingURL=style.css.map */
